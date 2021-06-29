@@ -1,4 +1,4 @@
-
+<?php require 'header.php'; ?>
 <div class="main-wrapper">
     <div class="content">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -144,3 +144,4 @@
 
 <?php require ("modalFade.php"); ?>
 
+<?php require 'footer.php'; ?>

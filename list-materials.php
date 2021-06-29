@@ -1,32 +1,12 @@
-<?php require ("header.php"); ?>
-<body>
+<?php require 'header.php'; ?>
 <div class="main-wrapper">
     <div class="content">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container">
-                <a class="navbar-brand" href="#">Test</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Материалы</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Теги</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Категории</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+        <?php require 'nav.php'; ?>
+
         <div class="container">
             <h1 class="my-md-5 my-4">Материалы</h1>
-            <a class="btn btn-primary mb-4" href="#" role="button">Добавить</a>
+            <a class="btn btn-primary mb-4" href="create-material.php" role="button">Добавить</a>
             <div class="row">
                 <div class="col-md-8">
                     <form>
@@ -99,16 +79,5 @@
             </div>
         </div>
     </div>
-   <?php require ("footer.php"); ?>
-</div>
-<!-- Optional JavaScript; choose one of the two! -->
 
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
-        crossorigin="anonymous"></script>
-
-<!-- Option 2: Separate Popper and Bootstrap JS -->
-
-</body>
-</html>
+<?php require 'footer.php'; ?>
