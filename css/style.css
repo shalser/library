@@ -21,3 +21,18 @@
         max-width: 30%;
     }
 }
+
+button.sh-btn {
+    border: none;
+    background: none;
+    color: #2a7ffd;
+}
+
+div.text-nowrap {
+    display: flex;
+}
+
+td.text-nowrap {
+    display: flex;
+    justify-content: center;
+}

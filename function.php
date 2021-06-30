@@ -6,26 +6,6 @@ const USER = 'root';
 const PASS = 'root';
 
 
-function getTypeByID($data): array
-{
-    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "SELECT type FROM type_materials WHERE id = (:type)";
-    $statement = $db->prepare($sql);
-    $statement->bindValue(":type", $data);
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getCategoryByID($data): array
-{
-    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "SELECT category FROM material_category WHERE id = (:category)";
-    $statement = $db->prepare($sql);
-    $statement->bindValue(":category", $data);
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-
 function addMaterials($type, $category, $title, $authors, $description)
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
@@ -60,6 +40,26 @@ function addCategory($data)
     $statement->execute($data);
     header('Location: /create-category.php');
     exit();
+}
+
+function getTypeByID($data): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT type FROM type_materials WHERE id = (:type)";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":type", $data);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getCategoryByID($data): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT category FROM material_category WHERE id = (:category)";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":category", $data);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getTypes(): array
@@ -106,3 +106,37 @@ function getCategories(): array
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function deleteCategory($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "DELETE FROM category WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    header('Location: /list-category.php');
+    exit();
+}
+
+function deleteTag($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "DELETE FROM tags WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    header('Location: /list-tag.php');
+    exit();
+}
+
+function deleteMaterials($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "DELETE FROM materials WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    header('Location: /');
+    exit();
+}
+
