@@ -1,4 +1,6 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';
+require 'function.php';
+?>
 <div class="main-wrapper">
     <div class="content">
 
@@ -8,9 +10,9 @@
             <h1 class="my-md-5 my-4">Добавить категорию</h1>
             <div class="row">
                 <div class="col-lg-5 col-md-8">
-                    <form>
+                    <form method="post" action="addCategory.php">
                         <div class="form-floating mb-3">
-                            <input type="text" class="form-control" placeholder="Напишите название" id="floatingName">
+                            <input type="text" name="category" class="form-control" placeholder="Напишите название" id="floatingName">
                             <label for="floatingName">Название</label>
                             <div class="invalid-feedback">
                                 Пожалуйста, заполните поле

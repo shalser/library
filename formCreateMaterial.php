@@ -2,10 +2,10 @@
 $types = getTypes();
 $categories = getCategory();
 ?>
-<form>
+<form method="post" action="addMaterials.php">
     <div class="form-floating mb-3">
 
-        <select class="form-select" id="floatingSelectType">
+        <select name="type_id" class="form-select" id="floatingSelectType">
             <option selected>Выберите тип</option>
             <?php foreach ($types as $type): ?>
             <option value="<?= $type['id'] ?>"><?= $type['type'] ?></option>
@@ -18,7 +18,7 @@ $categories = getCategory();
         </div>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" id="floatingSelectCategory">
+        <select name="category_id" class="form-select" id="floatingSelectCategory">
             <option selected>Выберите категорию</option>
             <?php foreach ($categories as $category): ?>
             <option value="<?= $category['id'] ?>"><?= $category['category'] ?></option>
@@ -30,21 +30,21 @@ $categories = getCategory();
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Напишите название" id="floatingName">
+        <input type="text" name="title" class="form-control" placeholder="Напишите название" id="floatingName">
         <label for="floatingName">Название</label>
         <div class="invalid-feedback">
             Пожалуйста, заполните поле
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input type="text" class="form-control" placeholder="Напишите авторов" id="floatingAuthor">
+        <input type="text" name="authors" class="form-control" placeholder="Напишите авторов" id="floatingAuthor">
         <label for="floatingAuthor">Авторы</label>
         <div class="invalid-feedback">
             Пожалуйста, заполните поле
         </div>
     </div>
     <div class="form-floating mb-3">
-                    <textarea class="form-control" placeholder="Напишите краткое описание" id="floatingDescription"
+                    <textarea name="description" class="form-control" placeholder="Напишите краткое описание" id="floatingDescription"
                               style="height: 100px"></textarea>
         <label for="floatingDescription">Описание</label>
         <div class="invalid-feedback">

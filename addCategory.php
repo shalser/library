@@ -1,4 +1,4 @@
 <?php require 'function.php';
 
-add($_POST);
+addCategory($_POST);
 
