@@ -1,4 +1,4 @@
-<?php require 'header.php';
+<?php require 'templates/header.php';
 
 ?>
 <div class="main-wrapper">
@@ -144,6 +144,6 @@
     </div>
 
 
-<?php require ("modalFade.php"); ?>
+<?php require ("templates/modalFade.php"); ?>
 
-<?php require 'footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

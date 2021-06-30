@@ -38,7 +38,7 @@ function addMaterials($type, $category, $title, $authors, $description)
     $statement->bindValue(":authors", $authors);
     $statement->bindValue(":description", $description);
     $statement->execute();
-    header('Location: create-material.php');
+    header('Location: /create-material.php');
     exit();
 }
 
@@ -48,7 +48,7 @@ function addTags($data)
     $sql = "INSERT INTO tags (title) VALUES (:tags);";
     $statement = $db->prepare($sql);
     $statement->execute($data);
-    header('Location: create-tag.php');
+    header('Location: /create-tag.php');
     exit();
 }
 
@@ -58,7 +58,7 @@ function addCategory($data)
     $sql = "INSERT INTO category (title) VALUES (:category);";
     $statement = $db->prepare($sql);
     $statement->execute($data);
-    header('Location: create-category.php');
+    header('Location: /create-category.php');
     exit();
 }
 

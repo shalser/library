@@ -1,4 +1,4 @@
-<?php require 'header.php';
+<?php require 'templates/header.php';
 require 'function.php';
 $tags = getTags();
 ?>
@@ -6,7 +6,7 @@ $tags = getTags();
 <div class="main-wrapper">
     <div class="content">
 
-        <?php require 'nav.php'; ?>
+        <?php require 'templates/nav.php'; ?>
 
         <div class="container">
             <h1 class="my-md-5 my-4">Теги</h1>
@@ -45,4 +45,4 @@ $tags = getTags();
             </div>
         </div>
     </div>
-<?php require 'footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

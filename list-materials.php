@@ -1,8 +1,8 @@
-<?php require 'header.php'; ?>
+<?php require 'templates/header.php'; ?>
 <div class="main-wrapper">
     <div class="content">
 
-        <?php require 'nav.php'; ?>
+        <?php require 'templates/nav.php'; ?>
 
         <div class="container">
             <h1 class="my-md-5 my-4">Материалы</h1>
@@ -80,4 +80,4 @@
         </div>
     </div>
 
-<?php require 'footer.php'; ?>
+<?php require 'templates/footer.php'; ?>

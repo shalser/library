@@ -1,4 +1,4 @@
-<?php require 'function.php';
+<?php require __DIR__ . '/../function.php';
 $type = getTypeByID($_POST['type_id']);
 $type = $type[0]['type'];
 $category = getCategoryByID($_POST['category_id']);

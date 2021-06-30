@@ -2,7 +2,7 @@
 $types = getTypes();
 $categories = getCategory();
 ?>
-<form method="post" action="addMaterials.php">
+<form method="post" action="../actions/addMaterials.php">
     <div class="form-floating mb-3">
 
         <select name="type_id" class="form-select" id="floatingSelectType">
