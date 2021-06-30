@@ -11,6 +11,6 @@
     <link rel="stylesheet" href="../css/bootstrap-utilities.css">
     <link rel="stylesheet" href="../css/style.css">
 
-    <title>Материалы</title>
+    <title>${title}</title>
 </head>
 <body>

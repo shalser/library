@@ -38,7 +38,7 @@ $materials = getMaterials();
                         <?php foreach ($materials
 
                         as $material): ?>
-                        <td><a href="#"><?= $material['title']; ?></a></td>
+                        <td><a href="view-material.php/<?= $material['title']; ?>"><?= $material['title']; ?></a></td>
                         <td><?= $material['authors']; ?></td>
                         <td><?= $material['type']; ?></td>
                         <td><?= $material['category']; ?></td>

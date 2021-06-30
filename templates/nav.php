@@ -8,15 +8,36 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="/">Материалы</a>
+                    <a class="nav-link" id="one" aria-current="page" href="/">Материалы</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="../list-tag.php">Теги</a>
+                    <a class="nav-link" id="two" href="../list-tag.php">Теги</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../list-category.php">Категории</a>
+                    <a class="nav-link" id="three" href="../list-category.php">Категории</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+
+<script>
+    try {
+        let url = document.location;
+        if (url.pathname === '/') {
+            let a = document.querySelector('#one');
+            a.classList.add('active');
+        }
+        if (url.pathname === '/list-tag.php') {
+            let a = document.querySelector('#two');
+            a.classList.add('active');
+        }
+        if (url.pathname === '/list-category.php') {
+            let a = document.querySelector('#three');
+            a.classList.add('active');
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
+</script>
