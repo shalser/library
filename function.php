@@ -32,6 +32,26 @@ function addTags($data)
     exit();
 }
 
+function addType($data)
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "INSERT INTO type_materials (type) VALUES (:type);";
+    $statement = $db->prepare($sql);
+    $statement->execute($data);
+    header('Location: /create-type.php');
+    exit();
+}
+
+function addAuthor($data)
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "INSERT INTO authors (author) VALUES (:author);";
+    $statement = $db->prepare($sql);
+    $statement->execute($data);
+    header('Location: /create-authors.php');
+    exit();
+}
+
 function addCategory($data)
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
@@ -58,6 +78,16 @@ function getCategoryByID($data): array
     $sql = "SELECT category FROM material_category WHERE id = (:category)";
     $statement = $db->prepare($sql);
     $statement->bindValue(":category", $data);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getMaterialsByID($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT * FROM materials WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
@@ -102,6 +132,24 @@ function getCategories(): array
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
     $sql = "SELECT * FROM category";
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getLinks(): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT * FROM links";
+    $statement = $db->prepare($sql);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getAuthors(): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT * FROM authors";
     $statement = $db->prepare($sql);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);

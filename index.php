@@ -38,7 +38,12 @@ $materials = getMaterials();
                         <?php foreach ($materials
 
                         as $material): ?>
-                        <td><a href="view-material.php/<?= $material['title']; ?>"><?= $material['title']; ?></a></td>
+                        <td id="<?= $material['id']; ?>">
+                            <form action="view-material.php/<?= $material['title']; ?>" method="post">
+                                <input type='hidden' name="id" value="<?= $material['id']; ?>">
+                                <button type="submit" class="sh-button-link"><?= $material['title']; ?></button>
+                            </form>
+                        </td>
                         <td><?= $material['authors']; ?></td>
                         <td><?= $material['type']; ?></td>
                         <td><?= $material['category']; ?></td>
