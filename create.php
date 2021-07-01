@@ -31,6 +31,6 @@
             </div>
         </div>
 
-
+        $new = htmlspecialchars("<a href='test'>Test</a>", ENT_QUOTES);
     </div>
 <?php require 'templates/footer.php'; ?>

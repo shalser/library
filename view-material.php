@@ -4,6 +4,8 @@ $tags = getTags();
 $links = getLinks();
 $materialId = $_POST['id'];
 $materials = getMaterialsById($materialId);
+$materialTags = getTagsByMaterialsID($materialId);
+$materialLinks = getLinksByMaterialsID($materialId);
 
 foreach ($materials as $material) {
     $title = $material['title'];
@@ -44,22 +46,22 @@ foreach ($materials as $material) {
 
             <div class="row">
                 <div class="col-md-6">
-                    <form>
+                    <form method="post" action="actions/addTagToMaterial.php">
                         <h3>Теги</h3>
                         <div class="input-group mb-3">
                             <select class="form-select" id="selectAddTag" aria-label="Добавьте автора">
                                 <?php foreach ($tags as $tag): ?>
-                                    <option selected value="<?= $tag['id'] ?>"><?= $tag['title'] ?></option>
+                                    <option selected value="<?= $tag['id'] ?>"><?= $tag['tags'] ?></option>
                                 <?php endforeach; ?>
                             </select>
-                            <button class="btn btn-primary" type="button">Добавить</button>
+                            <button class="btn btn-primary" type="submit">Добавить</button>
                         </div>
                     </form>
                     <ul class="list-group mb-4">
-                        <?php foreach ($tags as $tag): ?>
+                        <?php foreach ($materialTags as $materialTag): ?>
                         <li class="list-group-item list-group-item-action d-flex justify-content-between">
                             <a href="#" class="me-3">
-                                <?= $tag['title'] ?>
+                                <?= $materialTag['title'] ?>
                             </a>
                             <a href="#" class="text-decoration-none">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -79,10 +81,10 @@ foreach ($materials as $material) {
                         <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Добавить</a>
                     </div>
                     <ul class="list-group mb-4">
-                        <?php foreach ($links as $link): ?>
+                        <?php foreach ($materialLinks as $materialLink): ?>
                             <li class="list-group-item list-group-item-action d-flex justify-content-between">
                                 <a href="#" class="me-3">
-                                    <?= $link['link'] ?>
+                                    <?= $materialLink['link'] ?>
                                 </a>
                                 <span class="text-nowrap">
                                     <a href="#" class="text-decoration-none me-2">

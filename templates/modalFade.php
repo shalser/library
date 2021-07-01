@@ -1,7 +1,10 @@
+<?php //require __DIR__ . '/../function.php';
+//
+//?>
 <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
      tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <form class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalToggleLabel">Добавить ссылку</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -28,6 +31,6 @@
                 <button type="submit" class="btn btn-primary">Добавить</button>
                 <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Закрыть</button>
             </div>
-        </div>
+        </form>
     </div>
 </div>

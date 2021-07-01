@@ -20,7 +20,7 @@ $tags = getTags();
                         <?php foreach ($tags as $tag): ?>
                             <li class="list-group-item list-group-item-action d-flex justify-content-between">
                             <span class="me-3">
-                                <?= $tag['title']; ?>
+                                <?= $tag['tags']; ?>
                             </span>
                                 <div class="text-nowrap">
                                     <form action="actions/editTag.php" method="post">

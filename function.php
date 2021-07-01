@@ -22,10 +22,20 @@ function addMaterials($type, $category, $title, $authors, $description)
     exit();
 }
 
+//function addTags($data)
+//{
+//    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+//    $sql = "INSERT INTO compliance_tags_material_id (title) VALUES (:tags);";
+//    $statement = $db->prepare($sql);
+//    $statement->execute($data);
+//    header('Location: /create-tag.php');
+//    exit();
+//}
+
 function addTags($data)
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "INSERT INTO tags (title) VALUES (:tags);";
+    $sql = "INSERT INTO tags (tags) VALUES (:tags);";
     $statement = $db->prepare($sql);
     $statement->execute($data);
     header('Location: /create-tag.php');
@@ -55,7 +65,7 @@ function addAuthor($data)
 function addCategory($data)
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "INSERT INTO category (title) VALUES (:category);";
+    $sql = "INSERT INTO material_category (category) VALUES (:category);";
     $statement = $db->prepare($sql);
     $statement->execute($data);
     header('Location: /create-category.php');
@@ -86,6 +96,26 @@ function getMaterialsByID($id): array
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
     $sql = "SELECT * FROM materials WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getTagsByMaterialsID($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT title FROM compliance_tags_material_id WHERE material_id = (:id)";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+function getLinksByMaterialsID($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "SELECT link FROM compliance_links_material_id WHERE material_link = (:id)";
     $statement = $db->prepare($sql);
     $statement->bindValue(":id", $id);
     $statement->execute();
@@ -140,7 +170,7 @@ function getCategories(): array
 function getLinks(): array
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "SELECT * FROM links";
+    $sql = "SELECT * FROM compliance_links_material_id";
     $statement = $db->prepare($sql);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -158,7 +188,7 @@ function getAuthors(): array
 function deleteCategory($id): array
 {
     $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
-    $sql = "DELETE FROM category WHERE id = :id";
+    $sql = "DELETE FROM material_category WHERE id = :id";
     $statement = $db->prepare($sql);
     $statement->bindValue(":id", $id);
     $statement->execute();
@@ -176,6 +206,17 @@ function deleteTag($id): array
     header('Location: /list-tag.php');
     exit();
 }
+
+//function deleteTag($id): array
+//{
+//    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+//    $sql = "DELETE FROM compliance_tags_material_id WHERE id = :id";
+//    $statement = $db->prepare($sql);
+//    $statement->bindValue(":id", $id);
+//    $statement->execute();
+//    header('Location: /list-tag.php');
+//    exit();
+//}
 
 function deleteMaterials($id): array
 {

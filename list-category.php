@@ -1,6 +1,6 @@
 <?php require 'templates/header.php';
 require 'function.php';
-$categories = getCategories();
+$categories = getCategory();
 ?>
     <div class="main-wrapper">
     <div class="content">
@@ -19,7 +19,7 @@ $categories = getCategories();
                         <?php foreach ($categories as $category): ?>
                             <li class="list-group-item list-group-item-action d-flex justify-content-between">
                             <span class="me-3">
-                                <?= $category['title']; ?>
+                                <?= $category['category']; ?>
                             </span>
                                 <div class="text-nowrap">
                                     <form action="actions/editCategory.php" method="post">
