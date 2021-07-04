@@ -23,8 +23,8 @@ $types = getTypes();
                                 <?= $type['type']; ?>
                             </span>
                                 <div class="text-nowrap">
-                                    <form action="actions/editTag.php" method="post">
-                                        <input type='hidden' name='id_tag' value='<?= $type['id']; ?>' />
+                                    <form action="actions/editType.php" method="post">
+                                        <input type='hidden' name='id_type' value='<?= $type['id']; ?>' />
                                         <button class="text-decoration-none me-2 sh-btn" type="submit">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                  fill="currentColor"
@@ -33,8 +33,8 @@ $types = getTypes();
                                             </svg>
                                         </button>
                                     </form>
-                                    <form action="actions/deleteTag.php" method="post">
-                                        <input type='hidden' name='id_tag' value='<?= $type['id']; ?>' />
+                                    <form action="actions/deleteType.php" method="post">
+                                        <input type='hidden' name='id_type' value='<?= $type['id']; ?>' />
                                         <button class="text-decoration-none sh-btn" type="submit">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                  fill="currentColor"

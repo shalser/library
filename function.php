@@ -229,3 +229,14 @@ function deleteMaterials($id): array
     exit();
 }
 
+function editMaterial($id): array
+{
+    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+    $sql = "UPDATE FROM materials WHERE id = :id";
+    $statement = $db->prepare($sql);
+    $statement->bindValue(":id", $id);
+    $statement->execute();
+    header('Location: /');
+    exit();
+}
+
