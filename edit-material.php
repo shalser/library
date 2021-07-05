@@ -2,7 +2,7 @@
 require 'function.php';
 $tags = getTags();
 $links = getLinks();
-$materialId = $_POST['id'];
+$materialId = $_POST['id_material'];
 $materials = getMaterialsById($materialId);
 $materialTags = getTagsByMaterialsID($materialId);
 $materialLinks = getLinksByMaterialsID($materialId);
@@ -22,7 +22,11 @@ foreach ($materials as $material) {
 
         <div class="container">
 
-            <h1 class="my-md-5 my-4"><?= $title; ?></h1>
+            <h1 class="my-md-5 my-4">
+                <label for="editMaterial">
+                    <input type="text" value="<?= $title; ?>" id="editMaterial">
+                </label>
+            </h1>
             <div class="row mb-3">
                 <div class="col-lg-6 col-md-8">
                     <div class="d-flex text-break">
@@ -46,12 +50,12 @@ foreach ($materials as $material) {
 
             <div class="row">
                 <div class="col-md-6">
-                    <form method="post" action="http://test-shealvi/actions/addTagToMaterial.php">
+                    <form method="post" action="actions/addTagToMaterial.php">
                         <h3>Теги</h3>
                         <div class="input-group mb-3">
-                            <select name="selectTag" class="form-select" id="selectAddTag" aria-label="Добавьте автора">
+                            <select class="form-select" id="selectAddTag" aria-label="Добавьте автора">
                                 <?php foreach ($tags as $tag): ?>
-                                    <option value="<?= $tag['id'] ?>"><?= $tag['tags'] ?></option>
+                                    <option selected value="<?= $tag['id'] ?>"><?= $tag['tags'] ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <button class="btn btn-primary" type="submit">Добавить</button>

@@ -48,7 +48,7 @@ $materials = getMaterials();
                         <td><?= $material['type']; ?></td>
                         <td><?= $material['category']; ?></td>
                         <td class="text-nowrap text-end">
-                            <form action="actions/editMaterial.php" method="post">
+                            <form action="edit-material.php" method="post">
                                 <input type='hidden' name='id_material' value='<?= $material['id']; ?>' />
                                 <button class="text-decoration-none me-2 sh-btn" type="submit">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

@@ -3,7 +3,7 @@
 const DBNAME = 'library';
 const HOST = 'localhost';
 const USER = 'root';
-const PASS = '';
+const PASS = 'root';
 
 
 function addMaterials($type, $category, $title, $authors, $description)
@@ -41,6 +41,17 @@ function addTags($data)
     header('Location: /create-tag.php');
     exit();
 }
+
+//function addTagsToMaterial($data)
+//{
+//    $db = new PDO('mysql:host=' . HOST . ';dbname=' . DBNAME, USER, PASS);
+//    $sql = "INSERT INTO tags (tags) VALUES (:tags);";
+//    $statement = $db->prepare($sql);
+//    $statement->execute($data);
+//
+//    header('Location: http://test-shealvi/view-material.php/%D0%9F%D1%83%D1%82%D1%8C%20%D0%B4%D0%B6%D0%B5%D0%B4%D0%B0%D1%8F');
+//    exit();
+//}
 
 function addType($data)
 {
